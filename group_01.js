@@ -6,35 +6,42 @@ var robert = ["Robert", "26835", "66000", 1];
 var mayella = ["Mayella", "89068", "35000", 2];
 
 var employees = [atticus, jem, boo, scout, robert, mayella];
+convertEmployees(employees);
 
 function convertEmployees(array) {
   for (var i = 0; i < array.length; i++) {
-    var newEmployeeArray = new Object(array[i]);
+    var newEmployeeArray = newEmployee(array[i]);
+    console.log(newEmployeeArray);
   }
 }
 
 function newEmployee(employeeArray){
+  var resultArray = [];
   //constructor for new employee array
-  this.name = employeeArray[0];
-  this.
+ resultArray.push(employeeArray[0]);
+ resultArray.push(bonusPercent());
+  // this.annualcomp = annualComp;
+  // this.totalbonus = totalBonus;
   //Figures out employee bonus percentage
-  var employeeBonus = 0;
-  function bonusPercent(rating){
-    if(newEmployeeArray[4]==5){
+
+  function bonusPercent(){
+    var employeeBonus = 0;
+    if(employeeArray[3]==5){
       employeeBonus += '.10';
-    } else if (newEmployeeArray[4]==3) {
+    } else if (employeeArray[3]==3) {
       employeeBonus += '.04';
-    } else if (newEmployeeArray[4]==4) {
+    } else if (employeeArray[3]==4) {
       employeeBonus += '.06';
     } else {
       employeeBonus += 0;
     }
 
-    if(newEmployeeArray[1].length==4){
+      function bonusAdded(){
+        if(employeeArray[1].length==4){
       employeeBonus += '.05';
     }
-
-    if(newEmployeeArray[2]>65000)
+  }
+    if(employeeArray[2]>65000)
     {
       employeeBonus -= '.01';
     }
@@ -46,18 +53,21 @@ function newEmployee(employeeArray){
     else if (employeeBonus < 0) {
       employeeBonus = 0;
     }
-
     return employeeBonus;
+
   }
+
 
 //figures out the total bonus
-  function totalBonus(){
-    var totalBonus = parsInt(employeeBonus*newEmployeeArray[2]);
+  var totalBonus = function totalBonus(){
+    var totalBonus = parsInt(employeeBonus*employeeArray[2]);
     return totalBonus;
-  }
+  };
 
 //figures out annual compensation
-  function totalComp(){
-    var total = (totalBonus+newEmployeeArray[2]);
-  }
+  var annualComp = function totalComp(){
+    var total = (totalBonus+employeeArray[2]);
+  };
+
+  return resultArray;
 }
